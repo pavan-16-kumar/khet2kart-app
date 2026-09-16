@@ -155,8 +155,33 @@
   }
 }
 
-html { scroll-behavior: smooth; }
-.hero-shade { background: linear-gradient(90deg, color-mix(in oklab, var(--ink) 94%, transparent) 0%, color-mix(in oklab, var(--ink) 63%, transparent) 52%, color-mix(in oklab, var(--ink) 12%, transparent) 100%); }
-.ticker-track { animation: ticker 28s linear infinite; }
-@keyframes ticker { to { transform: translateX(-50%); } }
-@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } .ticker-track { animation: none; } * { transition-duration: 0.01ms !important; } }
+html {
+  scroll-behavior: smooth;
+}
+.hero-shade {
+  background: linear-gradient(
+    90deg,
+    color-mix(in oklab, var(--ink) 94%, transparent) 0%,
+    color-mix(in oklab, var(--ink) 63%, transparent) 52%,
+    color-mix(in oklab, var(--ink) 12%, transparent) 100%
+  );
+}
+.ticker-track {
+  animation: ticker 28s linear infinite;
+}
+@keyframes ticker {
+  to {
+    transform: translateX(-50%);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .ticker-track {
+    animation: none;
+  }
+  * {
+    transition-duration: 0.01ms !important;
+  }
+}

@@ -5,9 +5,16 @@ export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
       { title: "Khet2Kart — Direct Farm Marketplace" },
-      { name: "description", content: "Buy fresh produce directly from verified Indian farmers through a transparent agricultural supply chain." },
+      {
+        name: "description",
+        content:
+          "Buy fresh produce directly from verified Indian farmers through a transparent agricultural supply chain.",
+      },
       { property: "og:title", content: "Khet2Kart — Direct Farm Marketplace" },
-      { property: "og:description", content: "Connecting farmers, hubs, transporters and buyers without middlemen." },
+      {
+        property: "og:description",
+        content: "Connecting farmers, hubs, transporters and buyers without middlemen.",
+      },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
     ],

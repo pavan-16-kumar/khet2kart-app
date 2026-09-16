@@ -4,7 +4,7 @@
 
 Please copy the entire prompt below and paste it into Lovable to generate the complete frontend of the Khet2Kart platform.
 
-***
+---
 
 **App Name:** Khet2Kart 🌱
 
@@ -154,7 +154,7 @@ A dashboard layout with a sidebar (Dashboard, My Crops, Orders, Earnings) and ma
 
 ### 7. Farmer Onboarding View (Separate flow or modal)
 
-- **Multi-step Form:** 
+- **Multi-step Form:**
 
   1. Personal Info (Name, Mobile, State, District).
 
