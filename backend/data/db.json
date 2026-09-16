@@ -1,0 +1,414 @@
+{
+  "farmers": [
+    {
+      "name": "Kishan Lal Sharma",
+      "phone": "9988776655",
+      "state": "Rajasthan",
+      "district": "Jaipur",
+      "village": "Amer",
+      "farmArea": 7.5,
+      "mainCrops": "Bajra, Mustard",
+      "yearsFarming": 18,
+      "coordinates": [26.9124, 75.7873],
+      "id": "f-1789568559048",
+      "farmerId": "FC-RA-JAI-26-000188",
+      "verified": true,
+      "createdAt": "2026-09-16T14:22:39Z"
+    },
+    {
+      "name": "Balram Yadav",
+      "phone": "9876543210",
+      "state": "Telangana",
+      "district": "Medak",
+      "village": "",
+      "farmArea": 5.5,
+      "mainCrops": "Chilli, Turmeric",
+      "yearsFarming": 0,
+      "coordinates": [17.8714, 78.1108],
+      "id": "f-1789566707749",
+      "farmerId": "FC-TE-MED-26-000187",
+      "verified": true,
+      "createdAt": "2026-09-16T13:51:47.749Z"
+    },
+    {
+      "id": "f-1",
+      "farmerId": "FC-TG-184",
+      "name": "Ramesh Naik",
+      "phone": "9876543210",
+      "state": "Telangana",
+      "district": "Medak",
+      "village": "Narsapur",
+      "farmArea": 4.5,
+      "mainCrops": "Tomatoes, Okra",
+      "yearsFarming": 12,
+      "coordinates": [17.8714, 78.1108],
+      "verified": true,
+      "createdAt": "2026-09-16T13:51:17.078Z"
+    },
+    {
+      "id": "f-2",
+      "farmerId": "FC-MH-092",
+      "name": "Sunita Patil",
+      "phone": "9822012345",
+      "state": "Maharashtra",
+      "district": "Ratnagiri",
+      "village": "Guhagar",
+      "farmArea": 6,
+      "mainCrops": "Alphonso Mango",
+      "yearsFarming": 15,
+      "coordinates": [16.9902, 73.312],
+      "verified": true,
+      "createdAt": "2026-09-16T13:51:17.079Z"
+    }
+  ],
+  "listings": [
+    {
+      "farmerId": "FC-TG-184",
+      "farmerName": "Ramesh Naik",
+      "cropName": "Organic Spinach",
+      "variety": "Palak Greens",
+      "category": "Vegetables",
+      "grade": "Grade A",
+      "availableQuantity": 140,
+      "pricePerKg": 28.0,
+      "harvestDate": "Tomorrow",
+      "imageUrl": "/src/assets/okra.jpg",
+      "location": "Medak, Telangana",
+      "id": "1789568419854",
+      "listingId": "LST-2046",
+      "createdAt": "2026-09-16T14:20:19Z"
+    },
+    {
+      "farmerId": "FC-TE-MED-26-000187",
+      "farmerName": "Balram Yadav",
+      "cropName": "Guntur Chilli",
+      "variety": "Teja",
+      "category": "Vegetables",
+      "grade": "Grade A",
+      "availableQuantity": 445,
+      "pricePerKg": 120,
+      "harvestDate": "Sep 20",
+      "imageUrl": "/src/assets/okra.jpg",
+      "location": "Medak, Telangana",
+      "id": "1789566716896",
+      "listingId": "LST-2045",
+      "createdAt": "2026-09-16T13:51:56.896Z"
+    },
+    {
+      "id": "1",
+      "listingId": "LST-2041",
+      "farmerId": "FC-TG-184",
+      "farmerName": "Ramesh Naik",
+      "cropName": "Tomatoes",
+      "variety": "Arka Rakshak",
+      "category": "Vegetables",
+      "grade": "Grade A",
+      "availableQuantity": 620,
+      "pricePerKg": 32,
+      "harvestDate": "Today",
+      "imageUrl": "/src/assets/tomatoes.jpg",
+      "location": "Medak, Telangana",
+      "createdAt": "2026-09-16T13:51:17.079Z"
+    },
+    {
+      "id": "2",
+      "listingId": "LST-2042",
+      "farmerId": "FC-MH-092",
+      "farmerName": "Sunita Patil",
+      "cropName": "Alphonso Mango",
+      "variety": "Ratnagiri",
+      "category": "Fruits",
+      "grade": "Organic",
+      "availableQuantity": 380,
+      "pricePerKg": 145,
+      "harvestDate": "Tomorrow",
+      "imageUrl": "/src/assets/mangoes.jpg",
+      "location": "Ratnagiri, Maharashtra",
+      "createdAt": "2026-09-16T13:51:17.079Z"
+    },
+    {
+      "id": "3",
+      "listingId": "LST-2043",
+      "farmerId": "FC-KA-311",
+      "farmerName": "Mahesh Gowda",
+      "cropName": "Fresh Okra",
+      "variety": "Parbhani Kranti",
+      "category": "Vegetables",
+      "grade": "Organic",
+      "availableQuantity": 240,
+      "pricePerKg": 48,
+      "harvestDate": "Today",
+      "imageUrl": "/src/assets/okra.jpg",
+      "location": "Mysuru, Karnataka",
+      "createdAt": "2026-09-16T13:51:17.079Z"
+    },
+    {
+      "id": "4",
+      "listingId": "LST-2044",
+      "farmerId": "FC-PB-228",
+      "farmerName": "Gurpreet Singh",
+      "cropName": "Basmati Rice",
+      "variety": "Pusa 1121",
+      "category": "Grains",
+      "grade": "Grade A",
+      "availableQuantity": 1799,
+      "pricePerKg": 76,
+      "harvestDate": "Sep 12",
+      "imageUrl": "/src/assets/rice.jpg",
+      "location": "Patiala, Punjab",
+      "createdAt": "2026-09-16T13:51:17.079Z"
+    }
+  ],
+  "orders": [
+    {
+      "id": "1789568431392",
+      "orderId": "K2K-84692",
+      "customerId": "C-694",
+      "farmerId": "FC-TG-184",
+      "cropName": "Organic Spinach",
+      "quantity": 10,
+      "totalAmount": 325.0,
+      "subtotal": 280.0,
+      "delivery": 45.0,
+      "status": "FARMER_ACCEPTED",
+      "paymentMethod": "UPI",
+      "buyer": "Fresh Kitchen Hub",
+      "deliveryAddress": "Hitech City, Hyderabad, Telangana",
+      "items": [
+        {
+          "listingId": "1789568419854",
+          "cropName": "Organic Spinach",
+          "quantity": 10,
+          "pricePerKg": 28.0
+        }
+      ],
+      "createdAt": "2026-09-16T14:20:31Z"
+    },
+    {
+      "id": "1789567339270",
+      "orderId": "K2K-84980",
+      "customerId": "C-780",
+      "farmerId": "FC-TG-184",
+      "cropName": "Guntur Chilli +1",
+      "quantity": 6,
+      "totalAmount": 775,
+      "subtotal": 676,
+      "delivery": 99,
+      "status": "PENDING",
+      "paymentMethod": "UPI",
+      "buyer": "Boddupally Pavan Kumar",
+      "deliveryAddress": "hayathnagar",
+      "items": [
+        {
+          "listingId": "1789566716896",
+          "cropName": "Guntur Chilli",
+          "quantity": 5,
+          "pricePerKg": 120
+        },
+        {
+          "listingId": "4",
+          "cropName": "Basmati Rice",
+          "quantity": 1,
+          "pricePerKg": 76
+        }
+      ],
+      "createdAt": "2026-09-16T14:02:19.270Z"
+    },
+    {
+      "id": "1789566720485",
+      "orderId": "K2K-84953",
+      "customerId": "C-499",
+      "farmerId": "FC-TE-MED-26-000187",
+      "cropName": "Guntur Chilli",
+      "quantity": 50,
+      "totalAmount": 6000,
+      "subtotal": 6000,
+      "delivery": 0,
+      "status": "PENDING",
+      "paymentMethod": "UPI",
+      "buyer": "Pavan Kumar",
+      "deliveryAddress": "Madhapur, Hyderabad",
+      "items": [
+        {
+          "listingId": "1789566716896",
+          "cropName": "Guntur Chilli",
+          "quantity": 50,
+          "pricePerKg": 120
+        }
+      ],
+      "createdAt": "2026-09-16T13:52:00.485Z"
+    },
+    {
+      "id": "1",
+      "orderId": "K2K-84321",
+      "customerId": "C-009",
+      "farmerId": "FC-TG-184",
+      "cropName": "Tomatoes",
+      "quantity": 120,
+      "totalAmount": 3840,
+      "subtotal": 3840,
+      "delivery": 0,
+      "status": "PENDING",
+      "paymentMethod": "UPI",
+      "buyer": "Fresh Basket Café",
+      "deliveryAddress": "Shop 12, Jubilee Hills, Hyderabad",
+      "items": [
+        {
+          "listingId": "1",
+          "cropName": "Tomatoes",
+          "quantity": 120,
+          "pricePerKg": 32
+        }
+      ],
+      "createdAt": "2026-09-16T12:51:17.079Z"
+    },
+    {
+      "id": "2",
+      "orderId": "K2K-84318",
+      "customerId": "C-102",
+      "farmerId": "FC-TG-184",
+      "cropName": "Fresh Okra",
+      "quantity": 80,
+      "totalAmount": 3840,
+      "subtotal": 3840,
+      "delivery": 0,
+      "status": "FARMER_ACCEPTED",
+      "paymentMethod": "UPI",
+      "buyer": "Aahar Kitchens",
+      "deliveryAddress": "Plot 45, Gachibowli, Hyderabad",
+      "items": [
+        {
+          "listingId": "3",
+          "cropName": "Fresh Okra",
+          "quantity": 80,
+          "pricePerKg": 48
+        }
+      ],
+      "createdAt": "2026-09-16T11:51:17.079Z"
+    },
+    {
+      "id": "3",
+      "orderId": "K2K-84296",
+      "customerId": "C-047",
+      "farmerId": "FC-MH-092",
+      "cropName": "Alphonso Mango",
+      "quantity": 40,
+      "totalAmount": 5800,
+      "subtotal": 5800,
+      "delivery": 0,
+      "status": "DELIVERED",
+      "paymentMethod": "COD",
+      "buyer": "Green Grocers",
+      "deliveryAddress": "MG Road, Pune, Maharashtra",
+      "items": [
+        {
+          "listingId": "2",
+          "cropName": "Alphonso Mango",
+          "quantity": 40,
+          "pricePerKg": 145
+        }
+      ],
+      "createdAt": "2026-09-15T13:51:17.079Z"
+    }
+  ],
+  "transporterTasks": [
+    {
+      "id": 6,
+      "status": "In Transit",
+      "crop": "Organic Spinach",
+      "quantity": "10 kg",
+      "from": "Collection Center, Medak",
+      "to": "Hitech City, Hyderabad, Telangana",
+      "distance": "18 km"
+    },
+    {
+      "id": 5,
+      "status": "Pending Pickup",
+      "crop": "Guntur Chilli +1",
+      "quantity": "6 kg",
+      "from": "Collection Center, Medak",
+      "to": "hayathnagar",
+      "distance": "29 km"
+    },
+    {
+      "id": 4,
+      "status": "Pending Pickup",
+      "crop": "Guntur Chilli",
+      "quantity": "50 kg",
+      "from": "Collection Center, Medak",
+      "to": "Madhapur, Hyderabad",
+      "distance": "54 km"
+    },
+    {
+      "id": 1,
+      "status": "Pending Pickup",
+      "crop": "Tomatoes",
+      "quantity": "120 kg",
+      "from": "Ramesh Farm, Medak",
+      "to": "Banjara Hills Hub",
+      "distance": "42 km"
+    },
+    {
+      "id": 2,
+      "status": "In Transit",
+      "crop": "Basmati Rice",
+      "quantity": "640 kg",
+      "from": "Patiala Hub",
+      "to": "Fresh Cart, Ludhiana",
+      "distance": "91 km"
+    },
+    {
+      "id": 3,
+      "status": "Delivered",
+      "crop": "Fresh Okra",
+      "quantity": "80 kg",
+      "from": "Mysuru Hub",
+      "to": "Aahar Kitchens",
+      "distance": "34 km"
+    }
+  ],
+  "hubShipments": [
+    {
+      "id": "SHP-0192",
+      "farmer": "Ramesh Naik",
+      "crop": "Tomatoes",
+      "qty": "620 kg",
+      "eta": "10:20 AM",
+      "gradeStatus": "GRADE A APPROVED"
+    },
+    {
+      "id": "SHP-0194",
+      "farmer": "Anita Reddy",
+      "crop": "Onions",
+      "qty": "410 kg",
+      "eta": "11:05 AM",
+      "gradeStatus": "GRADE A APPROVED"
+    },
+    {
+      "id": "SHP-0198",
+      "farmer": "Mahesh Gowda",
+      "crop": "Fresh Okra",
+      "qty": "240 kg",
+      "eta": "12:30 PM",
+      "gradeStatus": "GRADE A APPROVED"
+    }
+  ],
+  "hubBatches": [
+    {
+      "id": "BATCH-1789568448872",
+      "route": "Hyderabad Route · HYD-221",
+      "description": "4 farmer lots · 1,280 kg",
+      "sealedAt": "2026-09-16T14:20:48Z"
+    }
+  ],
+  "verifiedUsers": ["F-184", "B-077", "T-042"],
+  "disputesResolved": true,
+  "platformStats": {
+    "totalHarvestSaved": "18,420 t",
+    "extraFarmerIncome": "₹12.8 Cr",
+    "activeFarmers": "8,644",
+    "avgTurnaroundTime": "21 hrs",
+    "gmv": "₹4.82 Cr",
+    "systemHealth": "99.98%"
+  }
+}

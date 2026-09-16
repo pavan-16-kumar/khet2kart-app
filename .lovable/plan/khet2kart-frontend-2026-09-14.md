@@ -1,9 +1,11 @@
 # Khet2Kart frontend
 
 ## Goal
+
 Build a polished, responsive single-page agritech platform that lets visitors switch between Home, Customer, Farmer, Transporter, Hub, and Admin views.
 
 ## What will be built
+
 - Sticky mandi-price ticker and role-switching navigation with mobile controls.
 - Cinematic farmer-led home page with platform metrics, supply-chain simulator, flow comparison, produce carousel, feature bento, and closing call-to-action.
 - Customer marketplace with search, filters, working cart drawer, and checkout form.
@@ -15,11 +17,13 @@ Build a polished, responsive single-page agritech platform that lets visitors sw
 - Responsive footer and complete page metadata.
 
 ## Design direction
+
 - Deep emerald agritech palette balanced with crisp off-white, charcoal, warm harvest gold, and produce-red accents.
 - Inter typography, compact dashboard controls, restrained glass surfaces, subtle depth, and purposeful micro-motion.
 - Real generated Indian agricultural photography for the opening scene and crop catalogue.
 
 ## Technical details
+
 - Use React Context for role, listings, orders, cart, and platform statistics.
 - Keep the experience on `/` while using internal role state as requested.
 - Use React Leaflet only after browser hydration to preserve server rendering.

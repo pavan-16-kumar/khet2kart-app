@@ -1,0 +1,27 @@
+{
+  "name": "khet2kart-backend",
+  "version": "1.0.0",
+  "description": "Backend API for Khet2Kart with OTP verification, Farmer registration, and Supply Chain services",
+  "main": "src/server.ts",
+  "type": "module",
+  "scripts": {
+    "dev": "./venv/bin/python run.py",
+    "server": "./venv/bin/python run.py",
+    "py": "./venv/bin/python run.py",
+    "build": "echo 'Python backend ready'",
+    "start": "./venv/bin/python run.py"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "zod": "^3.24.2"
+  },
+  "devDependencies": {
+    "@types/cors": "^2.8.17",
+    "@types/express": "^4.17.21",
+    "@types/node": "^22.13.9",
+    "tsx": "^4.19.3",
+    "typescript": "^5.8.2"
+  }
+}
