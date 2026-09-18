@@ -9,7 +9,10 @@
       "farmArea": 7.5,
       "mainCrops": "Bajra, Mustard",
       "yearsFarming": 18,
-      "coordinates": [26.9124, 75.7873],
+      "coordinates": [
+        26.9124,
+        75.7873
+      ],
       "id": "f-1789568559048",
       "farmerId": "FC-RA-JAI-26-000188",
       "verified": true,
@@ -24,7 +27,10 @@
       "farmArea": 5.5,
       "mainCrops": "Chilli, Turmeric",
       "yearsFarming": 0,
-      "coordinates": [17.8714, 78.1108],
+      "coordinates": [
+        17.8714,
+        78.1108
+      ],
       "id": "f-1789566707749",
       "farmerId": "FC-TE-MED-26-000187",
       "verified": true,
@@ -41,7 +47,10 @@
       "farmArea": 4.5,
       "mainCrops": "Tomatoes, Okra",
       "yearsFarming": 12,
-      "coordinates": [17.8714, 78.1108],
+      "coordinates": [
+        17.8714,
+        78.1108
+      ],
       "verified": true,
       "createdAt": "2026-09-16T13:51:17.078Z"
     },
@@ -56,7 +65,10 @@
       "farmArea": 6,
       "mainCrops": "Alphonso Mango",
       "yearsFarming": 15,
-      "coordinates": [16.9902, 73.312],
+      "coordinates": [
+        16.9902,
+        73.312
+      ],
       "verified": true,
       "createdAt": "2026-09-16T13:51:17.079Z"
     }
@@ -401,7 +413,11 @@
       "sealedAt": "2026-09-16T14:20:48Z"
     }
   ],
-  "verifiedUsers": ["F-184", "B-077", "T-042"],
+  "verifiedUsers": [
+    "F-184",
+    "B-077",
+    "T-042"
+  ],
   "disputesResolved": true,
   "platformStats": {
     "totalHarvestSaved": "18,420 t",
@@ -410,5 +426,822 @@
     "avgTurnaroundTime": "21 hrs",
     "gmv": "₹4.82 Cr",
     "systemHealth": "99.98%"
+  },
+  "users": [
+    {
+      "id": "u-farmer-01",
+      "phone": "9876543201",
+      "name": "Ramesh Naik",
+      "role": "FARMER",
+      "farmerId": "FO-TG-MDL-26-000184",
+      "location": "Medak, Telangana",
+      "village": "Narsapur",
+      "farmArea": 4.5,
+      "crops": [
+        "Tomatoes",
+        "Okra",
+        "Chilli"
+      ],
+      "coordinates": [
+        17.8714,
+        78.1108
+      ],
+      "verified": true,
+      "rating": 4.9,
+      "todaySales": 12450,
+      "availableStockKg": 240,
+      "activeCropsCount": 3,
+      "pendingOrdersCount": 5
+    },
+    {
+      "id": "u-customer-02",
+      "phone": "9876543202",
+      "name": "Pavan Kumar",
+      "role": "CUSTOMER",
+      "location": "Jubilee Hills, Hyderabad",
+      "address": "Plot 18, Road No. 10, Jubilee Hills, Hyderabad",
+      "coordinates": [
+        17.4325,
+        78.4073
+      ],
+      "loyaltyPoints": 420
+    },
+    {
+      "id": "u-driver-03",
+      "phone": "9876543203",
+      "name": "Ravi Kumar",
+      "role": "DELIVERY_PARTNER",
+      "driverId": "DP-HYD-042",
+      "vehicle": "Tata Ace EV (Capacity: 850 kg)",
+      "location": "Hyderabad Central Fresh Hub",
+      "coordinates": [
+        17.4265,
+        78.4188
+      ],
+      "status": "ON_DUTY",
+      "rating": 4.92,
+      "completedDeliveries": 218,
+      "todayDeliveries": 12,
+      "todayCompleted": 8,
+      "todayPending": 4
+    },
+    {
+      "id": "u-manager-04",
+      "phone": "9876543204",
+      "name": "Suresh Varma",
+      "role": "STORE_MANAGER",
+      "hubId": "HUB-HYD-01",
+      "hubName": "Hyderabad Central Fresh Hub (Hub A)",
+      "location": "Banjara Hills, Hyderabad",
+      "coordinates": [
+        17.4123,
+        78.4487
+      ]
+    },
+    {
+      "id": "u-admin-05",
+      "phone": "9876543205",
+      "name": "Platform Administrator",
+      "role": "ADMIN",
+      "adminLevel": "SUPER_ADMIN",
+      "department": "Platform Operations & Quality Control",
+      "location": "Khet2Kart Control Tower, Hyderabad"
+    },
+    {
+      "id": "u-oauth-1789720281278",
+      "email": "pavan.kumar@gmail.com",
+      "name": "Pavan Kumar",
+      "role": "CUSTOMER",
+      "avatar": "https://api.dicebear.com/7.x/bottts/svg?seed=pavan.kumar@gmail.com",
+      "authProvider": "google",
+      "verified": true,
+      "loginAt": "2026-09-18T08:31:21Z",
+      "phone": "9876543202",
+      "location": "Jubilee Hills, Hyderabad",
+      "address": "Plot 18, Road No. 10, Jubilee Hills, Hyderabad",
+      "coordinates": [
+        17.4325,
+        78.4073
+      ],
+      "loyaltyPoints": 420
+    },
+    {
+      "id": "u-oauth-1789721245757",
+      "email": "pavan.buyer@gmail.com",
+      "name": "Pavan Kumar",
+      "role": "CUSTOMER",
+      "avatar": "https://api.dicebear.com/7.x/bottts/svg?seed=pavan.buyer@gmail.com",
+      "authProvider": "google",
+      "verified": true,
+      "loginAt": "2026-09-18T09:24:36Z",
+      "phone": "9876543202",
+      "location": "Jubilee Hills, Hyderabad",
+      "address": "Plot 18, Road No. 10, Jubilee Hills, Hyderabad",
+      "coordinates": [
+        17.4325,
+        78.4073
+      ],
+      "loyaltyPoints": 420
+    }
+  ],
+  "inventoryBatches": [
+    {
+      "batchId": "OB557",
+      "cropName": "Onion",
+      "farmerId": "FC-TG-088",
+      "farmerName": "Anita Reddy",
+      "quantityKg": 430.0,
+      "grade": "Grade B",
+      "harvestDate": "Today",
+      "ageDays": 0,
+      "shelfLifeDays": 6,
+      "hubId": "HUB-HYD-01",
+      "status": "FRESH",
+      "pricePerKg": 32,
+      "temperature": "22°C"
+    },
+    {
+      "batchId": "TB787",
+      "cropName": "Tomato",
+      "farmerId": "FC-TG-184",
+      "farmerName": "Ramesh Naik",
+      "quantityKg": 190.0,
+      "grade": "Grade A",
+      "harvestDate": "Today",
+      "ageDays": 0,
+      "shelfLifeDays": 6,
+      "hubId": "HUB-HYD-01",
+      "status": "FRESH",
+      "pricePerKg": 32,
+      "temperature": "18°C"
+    },
+    {
+      "batchId": "TB001",
+      "cropName": "Tomato",
+      "farmerId": "FC-TG-184",
+      "farmerName": "Ramesh Naik",
+      "quantityKg": 300,
+      "grade": "Grade A",
+      "harvestDate": "16 Sept 2026",
+      "ageDays": 1,
+      "shelfLifeDays": 6,
+      "hubId": "HUB-HYD-01",
+      "status": "FRESH",
+      "pricePerKg": 32,
+      "temperature": "16°C"
+    },
+    {
+      "batchId": "LB012",
+      "cropName": "Lady's Finger",
+      "farmerId": "FC-KA-311",
+      "farmerName": "Mahesh Gowda",
+      "quantityKg": 80,
+      "grade": "Grade A",
+      "harvestDate": "16 Sept 2026",
+      "ageDays": 1,
+      "shelfLifeDays": 5,
+      "hubId": "HUB-HYD-01",
+      "status": "FRESH",
+      "pricePerKg": 40,
+      "temperature": "18°C"
+    },
+    {
+      "batchId": "OB021",
+      "cropName": "Onion",
+      "farmerId": "FC-TG-088",
+      "farmerName": "Anita Reddy",
+      "quantityKg": 420,
+      "grade": "Grade B",
+      "harvestDate": "13 Sept 2026",
+      "ageDays": 4,
+      "shelfLifeDays": 20,
+      "hubId": "HUB-HYD-01",
+      "status": "SELL_SOON",
+      "pricePerKg": 35,
+      "temperature": "21°C"
+    },
+    {
+      "batchId": "TB003",
+      "cropName": "Tomato",
+      "farmerId": "FC-TG-184",
+      "farmerName": "Ramesh Naik",
+      "quantityKg": 40,
+      "grade": "Grade B",
+      "harvestDate": "12 Sept 2026",
+      "ageDays": 5,
+      "shelfLifeDays": 6,
+      "hubId": "HUB-HYD-01",
+      "status": "PRIORITY",
+      "pricePerKg": 28,
+      "temperature": "19°C"
+    },
+    {
+      "batchId": "PB014",
+      "cropName": "Potato",
+      "farmerId": "FC-PB-228",
+      "farmerName": "Gurpreet Singh",
+      "quantityKg": 850,
+      "grade": "Grade A",
+      "harvestDate": "14 Sept 2026",
+      "ageDays": 3,
+      "shelfLifeDays": 30,
+      "hubId": "HUB-HYD-01",
+      "status": "FRESH",
+      "pricePerKg": 26,
+      "temperature": "20°C"
+    },
+    {
+      "batchId": "CB008",
+      "cropName": "Carrot",
+      "farmerId": "FC-TG-184",
+      "farmerName": "Ramesh Naik",
+      "quantityKg": 140,
+      "grade": "Grade A",
+      "harvestDate": "15 Sept 2026",
+      "ageDays": 2,
+      "shelfLifeDays": 10,
+      "hubId": "HUB-HYD-01",
+      "status": "FRESH",
+      "pricePerKg": 42,
+      "temperature": "15°C"
+    },
+    {
+      "batchId": "MB005",
+      "cropName": "Alphonso Mango",
+      "farmerId": "FC-MH-092",
+      "farmerName": "Sunita Patil",
+      "quantityKg": 180,
+      "grade": "Organic",
+      "harvestDate": "15 Sept 2026",
+      "ageDays": 2,
+      "shelfLifeDays": 7,
+      "hubId": "HUB-HYD-01",
+      "status": "FRESH",
+      "pricePerKg": 145,
+      "temperature": "14°C"
+    }
+  ],
+  "hubs": [
+    {
+      "id": "HUB-HYD-01",
+      "name": "Hub A · Hyderabad Central",
+      "address": "Road No. 12, Banjara Hills, Hyderabad",
+      "coordinates": [
+        17.4123,
+        78.4487
+      ],
+      "coverageRadiusKm": 8.0,
+      "capacityKg": 12000,
+      "currentStockKg": 4820,
+      "status": "ONLINE",
+      "manager": "Suresh Varma",
+      "availableCrops": [
+        "Tomato",
+        "Lady's Finger",
+        "Onion",
+        "Potato",
+        "Carrot",
+        "Alphonso Mango"
+      ]
+    },
+    {
+      "id": "HUB-HYD-02",
+      "name": "Hub B · Cyberabad West",
+      "address": "HITEC City Phase 2, Madhapur, Hyderabad",
+      "coordinates": [
+        17.4485,
+        78.3758
+      ],
+      "coverageRadiusKm": 7.5,
+      "capacityKg": 10000,
+      "currentStockKg": 3200,
+      "status": "ONLINE",
+      "manager": "Anand Mohan",
+      "availableCrops": [
+        "Tomato",
+        "Onion",
+        "Potato"
+      ]
+    },
+    {
+      "id": "HUB-HYD-03",
+      "name": "Hub C · Secunderabad North",
+      "address": "Karkhana Main Road, Secunderabad",
+      "coordinates": [
+        17.4399,
+        78.4983
+      ],
+      "coverageRadiusKm": 9.0,
+      "capacityKg": 8000,
+      "currentStockKg": 2150,
+      "status": "ONLINE",
+      "manager": "Vikas Rao",
+      "availableCrops": [
+        "Tomato",
+        "Lady's Finger",
+        "Onion",
+        "Potato",
+        "Carrot",
+        "Alphonso Mango",
+        "Basmati Rice"
+      ]
+    }
+  ],
+  "inventoryMovements": [
+    {
+      "id": "MOV-1789656382646",
+      "timestamp": "20:16",
+      "batchId": "OB557",
+      "cropName": "Onion",
+      "actor": "Store Manager",
+      "action": "STOCK_RECEIVED",
+      "quantityChange": 430.0,
+      "previousBalance": 0,
+      "newBalance": 430.0,
+      "reference": "Incoming Lot SHP-102 inspected by Store Manager"
+    },
+    {
+      "id": "MOV-1789656119836",
+      "timestamp": "20:11",
+      "batchId": "TB787",
+      "cropName": "Tomato",
+      "actor": "Store Manager",
+      "action": "STOCK_RECEIVED",
+      "quantityChange": 190.0,
+      "previousBalance": 0,
+      "newBalance": 190.0,
+      "reference": "Incoming Lot SHP-101 inspected by Store Manager"
+    },
+    {
+      "id": "MOV-9004",
+      "timestamp": "19:02",
+      "batchId": "TB001",
+      "cropName": "Tomato",
+      "actor": "Store Manager (Suresh Varma)",
+      "action": "ORDER_RESERVED",
+      "quantityChange": -3,
+      "previousBalance": 300,
+      "newBalance": 297,
+      "reference": "Customer Order #ORD-009721"
+    },
+    {
+      "id": "MOV-9003",
+      "timestamp": "18:45",
+      "batchId": "OB021",
+      "cropName": "Onion",
+      "actor": "Store Manager (Suresh Varma)",
+      "action": "ORDER_RESERVED",
+      "quantityChange": -2,
+      "previousBalance": 422,
+      "newBalance": 420,
+      "reference": "Customer Order #ORD-009721"
+    },
+    {
+      "id": "MOV-9002",
+      "timestamp": "18:15",
+      "batchId": "TB003",
+      "cropName": "Tomato",
+      "actor": "Store Manager (Suresh Varma)",
+      "action": "WASTAGE_RECORDED",
+      "quantityChange": -2,
+      "previousBalance": 42,
+      "newBalance": 40,
+      "reference": "Sorted out during cold storage QC (Crushed in transit)"
+    },
+    {
+      "id": "MOV-9001",
+      "timestamp": "16:30",
+      "batchId": "TB001",
+      "cropName": "Tomato",
+      "actor": "Store Manager (Suresh Varma)",
+      "action": "STOCK_RECEIVED",
+      "quantityChange": 300,
+      "previousBalance": 0,
+      "newBalance": 300,
+      "reference": "Farmer Ramesh Naik Lot SHP-101"
+    }
+  ],
+  "incomingShipments": [
+    {
+      "id": "SHP-101",
+      "farmer": "Ramesh Naik",
+      "farmerId": "FC-TG-184",
+      "crop": "Tomato",
+      "expectedKg": 200.0,
+      "actualKg": 194.0,
+      "acceptedKg": 190.0,
+      "rejectedKg": 4.0,
+      "grade": "Grade A",
+      "freshness": "Good",
+      "damagePct": 2.0,
+      "temperature": "18°C",
+      "status": "APPROVED",
+      "hubId": "HUB-HYD-01",
+      "eta": "Arrived & Inspected"
+    },
+    {
+      "id": "SHP-102",
+      "farmer": "Anita Reddy",
+      "farmerId": "FC-TG-088",
+      "crop": "Onion",
+      "expectedKg": 450.0,
+      "actualKg": 445.0,
+      "acceptedKg": 430.0,
+      "rejectedKg": 15.0,
+      "grade": "Grade B",
+      "freshness": "Good",
+      "damagePct": 3.5,
+      "temperature": "22°C",
+      "status": "APPROVED",
+      "hubId": "HUB-HYD-01",
+      "eta": "Today, 11:30 AM"
+    },
+    {
+      "id": "SHP-103",
+      "farmer": "Mahesh Gowda",
+      "farmerId": "FC-KA-311",
+      "crop": "Fresh Okra",
+      "expectedKg": 100,
+      "actualKg": 98,
+      "acceptedKg": 95,
+      "rejectedKg": 3,
+      "grade": "Grade A",
+      "freshness": "Excellent",
+      "damagePct": 1.0,
+      "temperature": "16°C",
+      "status": "APPROVED",
+      "hubId": "HUB-HYD-01",
+      "eta": "Arrived & Inspected"
+    }
+  ],
+  "pickingTasks": [
+    {
+      "id": "PICK-001",
+      "orderId": "ORD-009721",
+      "customerName": "Pavan Kumar",
+      "customerPhone": "+91 98765 43202",
+      "address": "Plot 18, Jubilee Hills, Hyderabad",
+      "items": [
+        {
+          "cropName": "Tomato",
+          "qtyKg": 3,
+          "batchId": "TB001",
+          "picked": true
+        },
+        {
+          "cropName": "Lady's Finger",
+          "qtyKg": 1,
+          "batchId": "LB012",
+          "picked": true
+        },
+        {
+          "cropName": "Onion",
+          "qtyKg": 2,
+          "batchId": "OB021",
+          "picked": true
+        }
+      ],
+      "totalWeightKg": 6.0,
+      "status": "READY_FOR_DELIVERY",
+      "assignedDriver": "Ravi Kumar (DP-HYD-042)",
+      "hubId": "HUB-HYD-01",
+      "createdAt": "2026-09-17T13:30:00Z"
+    },
+    {
+      "id": "PICK-002",
+      "orderId": "ORD-009722",
+      "customerName": "Fresh Basket Café",
+      "customerPhone": "+91 98220 99441",
+      "address": "Shop 12, Road 36, Jubilee Hills",
+      "items": [
+        {
+          "cropName": "Tomato",
+          "qtyKg": 20,
+          "batchId": "TB001",
+          "picked": true
+        },
+        {
+          "cropName": "Potato",
+          "qtyKg": 15,
+          "batchId": "PB014",
+          "picked": false
+        }
+      ],
+      "totalWeightKg": 35.0,
+      "status": "PICKING",
+      "assignedDriver": "Pending Assignment",
+      "hubId": "HUB-HYD-01",
+      "createdAt": "2026-09-17T13:45:00Z"
+    }
+  ],
+  "driverDeliveries": [
+    {
+      "id": "DEL-8491",
+      "orderId": "ORD-009721",
+      "driverId": "DP-HYD-042",
+      "driverName": "Ravi Kumar",
+      "driverPhone": "+91 98765 43203",
+      "hubName": "Hyderabad Central Fresh Hub (Hub A)",
+      "hubAddress": "Road No. 12, Banjara Hills, Hyderabad",
+      "customerName": "Pavan Kumar",
+      "customerPhone": "+91 98765 43202",
+      "customerAddress": "Plot 18, Road No. 10, Jubilee Hills, Hyderabad",
+      "itemsSummary": "Tomato 3kg, Lady's Finger 1kg, Onion 2kg (Total 6 kg)",
+      "pickupDistance": "2.4 km",
+      "dropoffDistance": "3.1 km",
+      "currentDriverLat": 17.4265,
+      "currentDriverLng": 78.4188,
+      "etaMinutes": 12,
+      "status": "OUT_FOR_DELIVERY",
+      "createdAt": "2026-09-17T13:40:00Z",
+      "lastLocationPing": "20:12:39"
+    }
+  ],
+  "auditLogs": [
+    {
+      "id": "AUD-1789723338291",
+      "timestamp": "14:52",
+      "role": "CUSTOMER",
+      "actor": "Pavan Kumar",
+      "action": "Role switched to CUSTOMER",
+      "details": "ID: u-customer-02 | Phone: 9876543202"
+    },
+    {
+      "id": "AUD-1789723085161",
+      "timestamp": "14:48",
+      "role": "CUSTOMER",
+      "actor": "Pavan Kumar",
+      "action": "OAuth Sign-In via Google",
+      "details": "Account: pavan.buyer@gmail.com | Role: CUSTOMER | Admin Approved: True"
+    },
+    {
+      "id": "AUD-1789723059771",
+      "timestamp": "14:47",
+      "role": "CUSTOMER",
+      "actor": "Pavan Kumar",
+      "action": "OAuth Sign-In via Google",
+      "details": "Account: pavan.buyer@gmail.com | Role: CUSTOMER | Admin Approved: True"
+    },
+    {
+      "id": "AUD-1789720306882",
+      "timestamp": "14:01",
+      "role": "ADMIN",
+      "actor": "Platform Administrator",
+      "action": "Admin updated permissions for role STORE_MANAGER",
+      "details": "Enabled: True | Admin Approved: True | Capabilities: ['quality_inspection', 'seal_batch', 'cold_chain_monitoring', 'pick_pack_dispatch']"
+    },
+    {
+      "id": "AUD-1789720295164",
+      "timestamp": "14:01",
+      "role": "ADMIN",
+      "actor": "Platform Administrator",
+      "action": "Admin updated permissions for role STORE_MANAGER",
+      "details": "Enabled: False | Admin Approved: False | Capabilities: ['quality_inspection', 'seal_batch', 'cold_chain_monitoring', 'pick_pack_dispatch']"
+    },
+    {
+      "id": "AUD-1789720281280",
+      "timestamp": "14:01",
+      "role": "CUSTOMER",
+      "actor": "Pavan Kumar",
+      "action": "OAuth Sign-In via Google",
+      "details": "Account: pavan.kumar@gmail.com | Role: CUSTOMER | Admin Approved: True"
+    },
+    {
+      "id": "AUD-1789656382646",
+      "timestamp": "20:16",
+      "role": "Store Manager",
+      "actor": "Store Manager",
+      "action": "Incoming Stock QC: APPROVE",
+      "details": "Shipment SHP-102 (430.0kg accepted, 15.0kg rejected, Grade B)"
+    },
+    {
+      "id": "AUD-1789656192093",
+      "timestamp": "20:13",
+      "role": "STORE_MANAGER",
+      "actor": "Suresh Varma",
+      "action": "Role switched to STORE_MANAGER",
+      "details": "ID: u-manager-04 | Phone: 9876543204"
+    },
+    {
+      "id": "AUD-1789656164075",
+      "timestamp": "20:12",
+      "role": "ADMIN",
+      "actor": "Platform Administrator",
+      "action": "Role switched to ADMIN",
+      "details": "ID: u-admin-05 | Phone: 9876543205"
+    },
+    {
+      "id": "AUD-1789656123812",
+      "timestamp": "20:12",
+      "role": "DELIVERY_PARTNER",
+      "actor": "Ravi Kumar",
+      "action": "Role switched to DELIVERY_PARTNER",
+      "details": "ID: u-driver-03 | Phone: 9876543203"
+    },
+    {
+      "id": "AUD-1789656119836",
+      "timestamp": "20:11",
+      "role": "Store Manager",
+      "actor": "Store Manager",
+      "action": "Incoming Stock QC: PARTIAL_ACCEPT",
+      "details": "Shipment SHP-101 (190.0kg accepted, 4.0kg rejected, Grade A)"
+    },
+    {
+      "id": "AUD-1789656056282",
+      "timestamp": "20:10",
+      "role": "STORE_MANAGER",
+      "actor": "Suresh Varma",
+      "action": "Role switched to STORE_MANAGER",
+      "details": "ID: u-manager-04 | Phone: 9876543204"
+    },
+    {
+      "id": "AUD-1789656017896",
+      "timestamp": "20:10",
+      "role": "FARMER",
+      "actor": "Ramesh Naik",
+      "action": "Role switched to FARMER",
+      "details": "ID: u-farmer-01 | Phone: 9876543201"
+    },
+    {
+      "id": "AUD-1789656016901",
+      "timestamp": "20:10",
+      "role": "FARMER",
+      "actor": "Ramesh Naik",
+      "action": "Role switched to FARMER",
+      "details": "ID: u-farmer-01 | Phone: 9876543201"
+    },
+    {
+      "id": "AUD-1789655979235",
+      "timestamp": "20:09",
+      "role": "CUSTOMER",
+      "actor": "Pavan Kumar",
+      "action": "Role switched to CUSTOMER",
+      "details": "ID: u-customer-02 | Phone: 9876543202"
+    },
+    {
+      "id": "AUD-1789655949822",
+      "timestamp": "20:09",
+      "role": "ADMIN",
+      "actor": "Platform Administrator",
+      "action": "Role switched to ADMIN",
+      "details": "ID: u-admin-05 | Phone: 9876543205"
+    },
+    {
+      "id": "AUD-1789655535605",
+      "timestamp": "20:02",
+      "role": "ADMIN",
+      "actor": "Platform Administrator",
+      "action": "User logged in via OTP",
+      "details": "Phone: +91 9876543205 | Role: ADMIN"
+    },
+    {
+      "id": "AUD-1789655531833",
+      "timestamp": "20:02",
+      "role": "DELIVERY_PARTNER",
+      "actor": "Ravi Kumar",
+      "action": "User logged in via OTP",
+      "details": "Phone: +91 9876543203 | Role: DELIVERY_PARTNER"
+    },
+    {
+      "id": "AUD-1789655528154",
+      "timestamp": "20:02",
+      "role": "FARMER",
+      "actor": "Ramesh Naik",
+      "action": "User logged in via OTP",
+      "details": "Phone: +91 9876543201 | Role: FARMER"
+    },
+    {
+      "id": "AUD-1789655524417",
+      "timestamp": "20:02",
+      "role": "STORE_MANAGER",
+      "actor": "Suresh Varma",
+      "action": "User logged in via OTP",
+      "details": "Phone: +91 9876543204 | Role: STORE_MANAGER"
+    },
+    {
+      "id": "AUD-501",
+      "timestamp": "19:12",
+      "role": "Store Manager",
+      "actor": "Suresh Varma (HUB-HYD-01)",
+      "action": "Updated inventory Batch: TB001",
+      "details": "300 kg → 297 kg reserved for Order #ORD-009721"
+    },
+    {
+      "id": "AUD-502",
+      "timestamp": "18:54",
+      "role": "Delivery Partner",
+      "actor": "Ravi Kumar (DP-HYD-042)",
+      "action": "Accepted order delivery ORD-009721",
+      "details": "Package pickup confirmed from Hub A (6 kg weight)"
+    },
+    {
+      "id": "AUD-503",
+      "timestamp": "18:42",
+      "role": "Customer",
+      "actor": "Pavan Kumar (+91 98765 43202)",
+      "action": "Created order ORD-009721",
+      "details": "Multi-item basket: Tomato 3kg, Lady's Finger 1kg, Onion 2kg. Total ₹236"
+    },
+    {
+      "id": "AUD-504",
+      "timestamp": "18:30",
+      "role": "Farmer",
+      "actor": "Ramesh Naik (FO-TG-MDL-26-000184)",
+      "action": "Registered crop harvest lot",
+      "details": "Tomato 200 kg harvested from Medak farm, dispatched to Hub A"
+    },
+    {
+      "id": "AUD-505",
+      "timestamp": "18:15",
+      "role": "Store Manager",
+      "actor": "Suresh Varma (HUB-HYD-01)",
+      "action": "Conducted Quality Inspection",
+      "details": "Batch TB001: 194kg inspected, 190kg accepted (Grade A Approved), 4kg culled"
+    },
+    {
+      "id": "AUD-506",
+      "timestamp": "17:50",
+      "role": "Admin",
+      "actor": "Super Admin Control Tower",
+      "action": "Platform cold storage capacity audit",
+      "details": "All 24 Hubs operational. Hub A utilization at 40.1%"
+    }
+  ],
+  "rolePermissions": {
+    "FARMER": {
+      "role": "FARMER",
+      "name": "Farmer Portal",
+      "enabled": true,
+      "adminApproved": true,
+      "description": "Direct farm produce listings, sales ledger, mandi rates & payments",
+      "permissions": [
+        "create_listing",
+        "view_orders",
+        "manage_stock",
+        "mandi_rates"
+      ],
+      "updatedAt": "2026-09-18T12:00:00Z",
+      "updatedBy": "Platform Administrator"
+    },
+    "CUSTOMER": {
+      "role": "CUSTOMER",
+      "name": "Customer Shopping",
+      "enabled": true,
+      "adminApproved": true,
+      "description": "Direct fresh produce marketplace, cart checkout, and delivery tracking",
+      "permissions": [
+        "browse_catalog",
+        "cart_checkout",
+        "track_delivery",
+        "upi_cod_payments"
+      ],
+      "updatedAt": "2026-09-18T12:00:00Z",
+      "updatedBy": "Platform Administrator"
+    },
+    "DELIVERY_PARTNER": {
+      "role": "DELIVERY_PARTNER",
+      "name": "Delivery Partner",
+      "enabled": true,
+      "adminApproved": true,
+      "description": "Last-mile transit dispatch, GPS tracking, and delivery OTP confirmation",
+      "permissions": [
+        "accept_dispatch",
+        "update_gps",
+        "confirm_delivery_otp",
+        "route_navigation"
+      ],
+      "updatedAt": "2026-09-18T12:00:00Z",
+      "updatedBy": "Platform Administrator"
+    },
+    "STORE_MANAGER": {
+      "role": "STORE_MANAGER",
+      "name": "Store / Hub Manager",
+      "enabled": true,
+      "adminApproved": true,
+      "description": "Hub intake inspection, cold chain monitoring, batch sealing, pick-pack-dispatch",
+      "permissions": [
+        "quality_inspection",
+        "seal_batch",
+        "cold_chain_monitoring",
+        "pick_pack_dispatch"
+      ],
+      "updatedAt": "2026-09-18T08:31:46Z",
+      "updatedBy": "Platform Administrator"
+    },
+    "ADMIN": {
+      "role": "ADMIN",
+      "name": "Admin Control Tower",
+      "enabled": true,
+      "adminApproved": true,
+      "description": "Full governance, RBAC permissions, network KPIs, and audit trail oversight",
+      "permissions": [
+        "manage_roles",
+        "grant_permissions",
+        "audit_ledger",
+        "full_governance"
+      ],
+      "updatedAt": "2026-09-18T12:00:00Z",
+      "updatedBy": "Platform Administrator"
+    }
   }
 }

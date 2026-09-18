@@ -17,7 +17,7 @@ if __name__ == "__main__":
         host="0.0.0.0",
         port=port,
         reload=True,
-        reload_dirs=[routers_dir, services_dir],
+        reload_dirs=[base_dir],
         reload_includes=["*.py"],
         reload_excludes=["*venv*", "*node_modules*", "*data*", "*.json", "*.log"],
     )

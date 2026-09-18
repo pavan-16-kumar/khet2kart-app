@@ -16,6 +16,8 @@ import {
   KeyRound,
   Leaf,
   Loader2,
+  LogIn,
+  LogOut,
   MapPin,
   Menu,
   Package,
@@ -65,15 +67,21 @@ import {
 } from "./FarmContext";
 import { ALL_INDIAN_STATES, getDistrictsForState } from "@/lib/indiaLocationData";
 import { SihProblemSolutionSection } from "./SihProblemSolution";
+import { RoleLoginModal } from "./components/RoleLoginModal";
+import { FarmerPortal } from "./components/FarmerPortal";
+import { StoreManagerPortal } from "./components/StoreManagerPortal";
+import { DeliveryPartnerPortal } from "./components/DeliveryPartnerPortal";
+import { CustomerMarketplacePortal } from "./components/CustomerMarketplacePortal";
+import { AdminControlTower } from "./components/AdminControlTower";
 
 const FarmMap = lazy(() => import("./FarmMap"));
 const roles: { id: Role; label: string }[] = [
   { id: "home", label: "Home" },
-  { id: "customer", label: "Marketplace" },
-  { id: "farmer", label: "Farmer" },
-  { id: "transporter", label: "Transporter" },
-  { id: "hub", label: "Hub" },
-  { id: "admin", label: "Admin" },
+  { id: "customer", label: "🛒 Marketplace" },
+  { id: "farmer", label: "👨🌾 Farmer" },
+  { id: "hub", label: "🏪 Store Manager" },
+  { id: "transporter", label: "🚚 Delivery Partner" },
+  { id: "admin", label: "👨💼 Admin Tower" },
 ];
 
 export function Khet2KartApp() {
@@ -85,10 +93,11 @@ export function Khet2KartApp() {
 }
 
 function AppShell() {
-  const { activeRole, setActiveRole, cart } = useFarmConnect();
+  const { activeRole, setActiveRole, cart, currentUser, logout, registerFarmerUser } = useFarmConnect();
   const [menuOpen, setMenuOpen] = useState(false);
   const [cartOpen, setCartOpen] = useState(false);
   const [registerOpen, setRegisterOpen] = useState(false);
+  const [roleModalOpen, setRoleModalOpen] = useState(false);
 
   const go = (role: Role) => {
     setActiveRole(role);
@@ -98,7 +107,7 @@ function AppShell() {
 
   return (
     <div className="min-h-screen bg-background text-foreground">
-      <div className="ticker overflow-hidden bg-ink text-primary-foreground">
+      <div id="mandi-rates" className="ticker overflow-hidden bg-ink text-primary-foreground">
         <div className="ticker-track flex w-max items-center gap-10 py-2 text-xs font-medium">
           <span className="inline-flex items-center gap-1.5 rounded-full bg-primary/30 px-2.5 py-0.5 font-bold text-harvest">
             <Award className="size-3.5" /> SMART INDIA HACKATHON 2026 · PS ID: SIH26033
@@ -123,8 +132,9 @@ function AppShell() {
           </span>
         </div>
       </div>
+
       <header className="sticky top-0 z-40 border-b border-border/70 bg-background/90 backdrop-blur-xl">
-        <div className="mx-auto flex h-18 max-w-7xl items-center gap-5 px-4 sm:px-6">
+        <div className="mx-auto flex h-18 max-w-7xl items-center gap-4 px-4 sm:px-6">
           <Button
             variant="ghost"
             className="h-auto gap-2 p-0 hover:bg-transparent"
@@ -138,97 +148,284 @@ function AppShell() {
               Khet<span className="text-primary">2</span>Kart
             </span>
           </Button>
-          <nav className="ml-auto hidden items-center gap-1 lg:flex" aria-label="Role navigation">
-            {roles.map((role) => (
-              <Button
-                key={role.id}
-                variant="ghost"
-                size="sm"
-                className={
-                  activeRole === role.id
-                    ? "bg-accent text-primary font-bold"
-                    : "text-muted-foreground"
-                }
-                onClick={() => go(role.id)}
-              >
-                {role.label}
-              </Button>
-            ))}
-          </nav>
-          <div className="ml-auto flex items-center gap-2 lg:ml-2">
-            {activeRole === "customer" && (
-              <Button
-                size="icon"
-                variant="outline"
-                className="relative"
-                onClick={() => setCartOpen(true)}
-                aria-label="Open cart"
-              >
-                <ShoppingCart />
-                {cart.length > 0 && (
-                  <span className="absolute -right-1 -top-1 grid size-5 place-items-center rounded-full bg-alert text-[10px] font-bold text-primary-foreground">
-                    {cart.length}
-                  </span>
+
+          {/* Unauthenticated View: Public Landing Links */}
+          {currentUser === null ? (
+            <>
+              <nav className="ml-8 hidden items-center gap-6 md:flex" aria-label="Public navigation">
+                <a
+                  href="#sih-solution"
+                  className="text-sm font-semibold text-muted-foreground hover:text-ink transition-colors"
+                >
+                  Why Khet2Kart
+                </a>
+                <a
+                  href="#how-it-works"
+                  className="text-sm font-semibold text-muted-foreground hover:text-ink transition-colors"
+                >
+                  Supply Chain Flow
+                </a>
+                <a
+                  href="#mandi-rates"
+                  className="text-sm font-semibold text-muted-foreground hover:text-ink transition-colors"
+                >
+                  Mandi Rates
+                </a>
+              </nav>
+
+              <div className="ml-auto flex items-center gap-2.5">
+                <Button
+                  variant="default"
+                  size="sm"
+                  onClick={() => setRoleModalOpen(true)}
+                  className="gap-1.5 font-bold shadow-xs bg-primary text-primary-foreground hover:bg-primary/90"
+                >
+                  <LogIn className="size-4" /> Sign In / Role Login
+                </Button>
+                <Button
+                  variant="outline"
+                  size="sm"
+                  onClick={() => setRegisterOpen(true)}
+                  className="gap-1.5 font-bold border-primary/40 text-primary hover:bg-primary/10 hidden sm:inline-flex"
+                >
+                  <Sprout className="size-4" /> Register as Farmer
+                </Button>
+                <Button
+                  size="icon"
+                  variant="ghost"
+                  className="md:hidden"
+                  onClick={() => setMenuOpen((value) => !value)}
+                  aria-label="Toggle menu"
+                >
+                  {menuOpen ? <X /> : <Menu />}
+                </Button>
+              </div>
+            </>
+          ) : (
+            /* Authenticated View: Role-Specific Identity Workspace Header */
+            <>
+              {/* Role Indicator Pill */}
+              <div className="ml-4 flex items-center gap-2">
+                {currentUser.role === "FARMER" && (
+                  <div className="flex items-center gap-2 rounded-full border border-emerald-500/30 bg-emerald-500/10 px-3 py-1 text-xs font-semibold text-emerald-900">
+                    <span className="size-2 rounded-full bg-emerald-500 animate-pulse" />
+                    <Tractor className="size-3.5 text-emerald-600 shrink-0" />
+                    <span>{currentUser.name}</span>
+                    <span className="hidden sm:inline text-emerald-600/50">•</span>
+                    <span className="hidden sm:inline font-mono text-[11px] font-bold text-emerald-700">
+                      FARMER ({currentUser.farmerId || "FO-TG-001"})
+                    </span>
+                  </div>
                 )}
-              </Button>
-            )}
-            <Button className="hidden sm:inline-flex" onClick={() => setRegisterOpen(true)}>
-              <Sprout /> Register as Farmer
-            </Button>
-            <Button
-              size="icon"
-              variant="ghost"
-              className="lg:hidden"
-              onClick={() => setMenuOpen((value) => !value)}
-              aria-label="Toggle menu"
-            >
-              {menuOpen ? <X /> : <Menu />}
-            </Button>
-          </div>
+                {currentUser.role === "STORE_MANAGER" && (
+                  <div className="flex items-center gap-2 rounded-full border border-sky-500/30 bg-sky-500/10 px-3 py-1 text-xs font-semibold text-sky-900">
+                    <span className="size-2 rounded-full bg-sky-500 animate-pulse" />
+                    <Warehouse className="size-3.5 text-sky-600 shrink-0" />
+                    <span>{currentUser.name}</span>
+                    <span className="hidden sm:inline text-sky-600/50">•</span>
+                    <span className="hidden sm:inline font-mono text-[11px] font-bold text-sky-700">
+                      HUB MANAGER (Hub A · HYD-01)
+                    </span>
+                  </div>
+                )}
+                {currentUser.role === "DELIVERY_PARTNER" && (
+                  <div className="flex items-center gap-2 rounded-full border border-amber-500/30 bg-amber-500/10 px-3 py-1 text-xs font-semibold text-amber-900">
+                    <span className="size-2 rounded-full bg-amber-500 animate-pulse" />
+                    <Truck className="size-3.5 text-amber-600 shrink-0" />
+                    <span>{currentUser.name}</span>
+                    <span className="hidden sm:inline text-amber-600/50">•</span>
+                    <span className="hidden sm:inline font-mono text-[11px] font-bold text-amber-700">
+                      DELIVERY PARTNER (DP-HYD-042)
+                    </span>
+                  </div>
+                )}
+                {currentUser.role === "CUSTOMER" && (
+                  <div className="flex items-center gap-2 rounded-full border border-indigo-500/30 bg-indigo-500/10 px-3 py-1 text-xs font-semibold text-indigo-900">
+                    <span className="size-2 rounded-full bg-indigo-500 animate-pulse" />
+                    <ShoppingCart className="size-3.5 text-indigo-600 shrink-0" />
+                    <span>{currentUser.name}</span>
+                    <span className="hidden sm:inline text-indigo-600/50">•</span>
+                    <span className="hidden sm:inline font-bold text-indigo-700">
+                      CUSTOMER ({currentUser.location || "Hyderabad"})
+                    </span>
+                  </div>
+                )}
+                {currentUser.role === "ADMIN" && (
+                  <div className="flex items-center gap-2 rounded-full border border-rose-500/30 bg-rose-500/10 px-3 py-1 text-xs font-semibold text-rose-900">
+                    <span className="size-2 rounded-full bg-rose-500 animate-pulse" />
+                    <ShieldAlert className="size-3.5 text-rose-600 shrink-0" />
+                    <span>{currentUser.name}</span>
+                    <span className="hidden sm:inline text-rose-600/50">•</span>
+                    <span className="hidden sm:inline font-mono text-[11px] font-bold text-rose-700">
+                      ADMIN CONTROL TOWER
+                    </span>
+                  </div>
+                )}
+              </div>
+
+              {/* Right Role Actions */}
+              <div className="ml-auto flex items-center gap-2">
+                {currentUser.role === "CUSTOMER" && (
+                  <Button
+                    size="icon"
+                    variant="outline"
+                    className="relative"
+                    onClick={() => setCartOpen(true)}
+                    aria-label="Open cart"
+                  >
+                    <ShoppingCart className="size-4" />
+                    {cart.length > 0 && (
+                      <span className="absolute -right-1 -top-1 grid size-5 place-items-center rounded-full bg-alert text-[10px] font-bold text-primary-foreground">
+                        {cart.length}
+                      </span>
+                    )}
+                  </Button>
+                )}
+
+
+
+                {/* Sign Out Button */}
+                <Button
+                  variant="ghost"
+                  size="sm"
+                  onClick={() => {
+                    logout();
+                    go("home");
+                  }}
+                  className="gap-1.5 text-xs text-muted-foreground hover:text-rose-600 hover:bg-rose-500/10"
+                  title="Sign out of this role and return to Home"
+                >
+                  <LogOut className="size-3.5" />
+                  <span className="hidden sm:inline">Sign Out</span>
+                </Button>
+              </div>
+            </>
+          )}
         </div>
-        {menuOpen && (
-          <nav className="grid border-t bg-background p-3 lg:hidden">
-            {roles.map((role) => (
+
+        {/* Mobile menu for unauthenticated view */}
+        {menuOpen && currentUser === null && (
+          <nav className="grid border-t bg-background p-4 md:hidden gap-3">
+            <a
+              href="#sih-solution"
+              onClick={() => setMenuOpen(false)}
+              className="text-sm font-medium py-1 text-muted-foreground hover:text-ink"
+            >
+              Why Khet2Kart
+            </a>
+            <a
+              href="#how-it-works"
+              onClick={() => setMenuOpen(false)}
+              className="text-sm font-medium py-1 text-muted-foreground hover:text-ink"
+            >
+              Supply Chain Flow
+            </a>
+            <a
+              href="#mandi-rates"
+              onClick={() => setMenuOpen(false)}
+              className="text-sm font-medium py-1 text-muted-foreground hover:text-ink"
+            >
+              Mandi Rates
+            </a>
+            <div className="flex flex-col gap-2 pt-2 border-t">
               <Button
-                key={role.id}
-                variant="ghost"
-                className="justify-start"
-                onClick={() => go(role.id)}
+                onClick={() => {
+                  setMenuOpen(false);
+                  setRoleModalOpen(true);
+                }}
+                className="w-full justify-center gap-1.5 font-bold"
               >
-                {role.label}
+                <LogIn className="size-4" /> Sign In / Role Login
               </Button>
-            ))}
-            <Button className="mt-2 sm:hidden" onClick={() => setRegisterOpen(true)}>
-              Register as Farmer
-            </Button>
+              <Button
+                variant="outline"
+                onClick={() => {
+                  setMenuOpen(false);
+                  setRegisterOpen(true);
+                }}
+                className="w-full justify-center gap-1.5 font-bold"
+              >
+                <Sprout className="size-4" /> Register as Farmer
+              </Button>
+            </div>
           </nav>
         )}
       </header>
+
       <main>
-        {activeRole === "home" && <HomeView onRole={go} onRegister={() => setRegisterOpen(true)} />}
-        {activeRole === "customer" && <CustomerView onCart={() => setCartOpen(true)} />}
-        {activeRole === "farmer" && <FarmerView />}
-        {activeRole === "transporter" && <TransporterView />}
-        {activeRole === "hub" && <HubView />}
-        {activeRole === "admin" && <AdminView />}
+        {currentUser === null ? (
+          <HomeView
+            onRole={(role) => {
+              if (role === "customer") {
+                setActiveRole("customer");
+              } else {
+                setRoleModalOpen(true);
+              }
+            }}
+            onRegister={() => setRegisterOpen(true)}
+            onOpenLogin={() => setRoleModalOpen(true)}
+          />
+        ) : (
+          <>
+            {currentUser.role === "FARMER" && <FarmerPortal />}
+            {currentUser.role === "CUSTOMER" && (
+              <CustomerMarketplacePortal onOpenCart={() => setCartOpen(true)} />
+            )}
+            {currentUser.role === "DELIVERY_PARTNER" && <DeliveryPartnerPortal />}
+            {currentUser.role === "STORE_MANAGER" && <StoreManagerPortal />}
+            {currentUser.role === "ADMIN" && <AdminControlTower />}
+          </>
+        )}
       </main>
-      <Footer onRole={go} />
+
+      <Footer
+        onRole={(role) => {
+          if (currentUser) return;
+          if (role === "customer") setActiveRole("customer");
+          else setRoleModalOpen(true);
+        }}
+        onOpenLogin={() => {
+          if (!currentUser) setRoleModalOpen(true);
+        }}
+        onRegister={() => {
+          if (!currentUser) setRegisterOpen(true);
+        }}
+      />
+
       <CartDialog open={cartOpen} onOpenChange={setCartOpen} />
       <OnboardingDialog
         open={registerOpen}
         onOpenChange={setRegisterOpen}
-        onSuccess={() => go("farmer")}
+        onSuccess={(farmerData) => {
+          registerFarmerUser({
+            farmerId: farmerData.farmerId,
+            name: farmerData.name,
+            phone: farmerData.phone,
+            location: `${farmerData.district}, ${farmerData.state}`,
+            village: farmerData.village,
+            farmArea: Number(farmerData.farmArea) || 4.0,
+            crops: farmerData.mainCrops
+              ? farmerData.mainCrops.split(",").map((s) => s.trim())
+              : ["Tomatoes"],
+            coordinates: farmerData.position,
+          });
+          go("farmer");
+        }}
       />
+      <RoleLoginModal open={roleModalOpen} onOpenChange={setRoleModalOpen} />
     </div>
   );
 }
 
+
 function HomeView({
   onRole,
   onRegister,
+  onOpenLogin,
 }: {
   onRole: (role: Role) => void;
   onRegister: () => void;
+  onOpenLogin: () => void;
 }) {
   const { platformStats, listings, addToCart } = useFarmConnect();
   const [stage, setStage] = useState(0);
@@ -290,18 +487,26 @@ function HomeView({
             <div className="mt-8 flex flex-wrap gap-3">
               <Button
                 size="lg"
-                className="bg-harvest text-ink hover:bg-harvest/90"
-                onClick={() => onRole("customer")}
+                className="bg-harvest text-ink hover:bg-harvest/90 font-bold"
+                onClick={onOpenLogin}
               >
-                Buy directly <ArrowRight />
+                <LogIn className="mr-1.5 size-4" /> Sign In with Phone OTP
               </Button>
               <Button
                 size="lg"
                 variant="outline"
-                className="border-primary-foreground/40 bg-primary-foreground/10 text-primary-foreground hover:bg-primary-foreground/20"
+                className="border-primary-foreground/40 bg-primary-foreground/10 text-primary-foreground hover:bg-primary-foreground/20 font-bold"
                 onClick={onRegister}
               >
-                Register as a farmer
+                <Sprout className="mr-1.5 size-4" /> Register as a farmer
+              </Button>
+              <Button
+                size="lg"
+                variant="ghost"
+                className="text-primary-foreground hover:bg-primary-foreground/10"
+                onClick={() => onRole("customer")}
+              >
+                Explore Marketplace <ArrowRight className="ml-1.5 size-4" />
               </Button>
             </div>
           </div>
@@ -729,7 +934,7 @@ function CartDialog({
   open: boolean;
   onOpenChange: (open: boolean) => void;
 }) {
-  const { cart, removeFromCart, placeOrder } = useFarmConnect();
+  const { cart, removeFromCart, placeOrder, updateCartQuantity } = useFarmConnect();
   const [checkout, setCheckout] = useState(false);
   const [complete, setComplete] = useState(false);
   const [isPlacing, setIsPlacing] = useState(false);
@@ -908,8 +1113,25 @@ function CartDialog({
                   <div className="min-w-0 flex-1">
                     <p className="font-bold">{item.cropName}</p>
                     <p className="text-xs text-muted-foreground">
-                      {item.cartQuantity} kg · ₹{item.pricePerKg}/kg
+                      ₹{item.pricePerKg}/kg
                     </p>
+                    <div className="mt-1 flex items-center gap-2">
+                      <button
+                        type="button"
+                        onClick={() => updateCartQuantity(item.id, Math.max(0.5, item.cartQuantity - 0.5))}
+                        className="grid size-5 place-items-center rounded bg-background border hover:bg-muted text-foreground text-xs font-bold"
+                      >
+                        -
+                      </button>
+                      <span className="font-mono text-xs font-bold w-8 text-center">{item.cartQuantity} kg</span>
+                      <button
+                        type="button"
+                        onClick={() => updateCartQuantity(item.id, item.cartQuantity + 0.5)}
+                        className="grid size-5 place-items-center rounded bg-background border hover:bg-muted text-foreground text-xs font-bold"
+                      >
+                        +
+                      </button>
+                    </div>
                   </div>
                   <Button
                     variant="ghost"
@@ -1672,6 +1894,18 @@ function AdminView() {
   );
 }
 
+export interface FarmerOnboardingData {
+  farmerId: string;
+  name: string;
+  phone: string;
+  state: string;
+  district: string;
+  village: string;
+  farmArea: string;
+  mainCrops: string;
+  position: [number, number];
+}
+
 /**
  * Enhanced Farmer Onboarding Dialog with Phone OTP Generation & Verification
  */
@@ -1682,7 +1916,7 @@ function OnboardingDialog({
 }: {
   open: boolean;
   onOpenChange: (open: boolean) => void;
-  onSuccess?: () => void;
+  onSuccess?: (data: FarmerOnboardingData) => void;
 }) {
   const { refreshData } = useFarmConnect();
 
@@ -2162,10 +2396,24 @@ function OnboardingDialog({
               </div>
             </div>
             <Button
-              className="mt-6"
+              className="mt-6 font-bold"
               onClick={() => {
                 close(false);
-                if (onSuccess) onSuccess();
+                if (onSuccess) {
+                  onSuccess({
+                    farmerId:
+                      registeredFarmer?.farmerId ||
+                      `FO-TG-MDL-26-${Math.floor(100000 + Math.random() * 900000)}`,
+                    name,
+                    phone,
+                    state,
+                    district,
+                    village,
+                    farmArea,
+                    mainCrops,
+                    position,
+                  });
+                }
               }}
             >
               Enter Farmer Portal
@@ -2177,7 +2425,15 @@ function OnboardingDialog({
   );
 }
 
-function Footer({ onRole }: { onRole: (role: Role) => void }) {
+function Footer({
+  onRole,
+  onOpenLogin,
+  onRegister,
+}: {
+  onRole: (role: Role) => void;
+  onOpenLogin?: () => void;
+  onRegister?: () => void;
+}) {
   return (
     <footer className="border-t bg-ink text-primary-foreground">
       <div className="mx-auto grid max-w-7xl gap-10 px-4 py-14 sm:px-6 md:grid-cols-[1.5fr_1fr_1fr]">
@@ -2189,42 +2445,60 @@ function Footer({ onRole }: { onRole: (role: Role) => void }) {
             Khet2Kart
           </div>
           <p className="mt-4 max-w-sm text-sm leading-6 text-primary-foreground/55">
-            A fairer, faster agricultural supply chain for India’s farmers and buyers.
+            A fairer, faster agricultural supply chain for India’s farmers and buyers. Direct farm-to-hub traceability with server-side RBAC and route optimization.
           </p>
-        </div>
-        <div>
-          <p className="font-bold">Explore</p>
-          <div className="mt-4 grid gap-2">
-            {roles.slice(0, 3).map((role) => (
-              <Button
-                key={role.id}
-                variant="link"
-                className="h-auto justify-start p-0 text-primary-foreground/60"
-                onClick={() => onRole(role.id)}
-              >
-                {role.label}
-              </Button>
-            ))}
+          <div className="mt-4 flex items-center gap-2 text-xs text-harvest font-semibold">
+            <Award className="size-4" /> Smart India Hackathon 2026 · Problem ID SIH26033
           </div>
         </div>
         <div>
-          <p className="font-bold">Operations</p>
-          <div className="mt-4 grid gap-2">
-            {roles.slice(3).map((role) => (
-              <Button
-                key={role.id}
-                variant="link"
-                className="h-auto justify-start p-0 text-primary-foreground/60"
-                onClick={() => onRole(role.id)}
-              >
-                {role.label} portal
-              </Button>
-            ))}
+          <p className="font-bold text-sm uppercase tracking-wider text-harvest">Role Access & Portals</p>
+          <div className="mt-4 grid gap-2 text-sm">
+            <button
+              className="text-left text-primary-foreground/60 hover:text-white transition-colors"
+              onClick={() => onRegister?.()}
+            >
+              👨🌾 Farmer Registration & Portal
+            </button>
+            <button
+              className="text-left text-primary-foreground/60 hover:text-white transition-colors"
+              onClick={() => onOpenLogin?.()}
+            >
+              🏪 Hub Store Manager
+            </button>
+            <button
+              className="text-left text-primary-foreground/60 hover:text-white transition-colors"
+              onClick={() => onOpenLogin?.()}
+            >
+              🚚 Delivery Partner Tasks
+            </button>
+            <button
+              className="text-left text-primary-foreground/60 hover:text-white transition-colors"
+              onClick={() => onRole("customer")}
+            >
+              🛒 Customer Marketplace
+            </button>
+            <button
+              className="text-left text-primary-foreground/60 hover:text-white transition-colors"
+              onClick={() => onOpenLogin?.()}
+            >
+              👨💼 Admin Control Tower
+            </button>
+          </div>
+        </div>
+        <div>
+          <p className="font-bold text-sm uppercase tracking-wider text-harvest">Platform Integrity</p>
+          <div className="mt-4 grid gap-2 text-sm text-primary-foreground/60">
+            <p>🔒 Server-Side RBAC & Supabase RLS</p>
+            <p>📦 Batch Traceability & Ledger</p>
+            <p>🔍 Hub Quality Inspection (QC)</p>
+            <p>📍 Google Routes Telemetry</p>
+            <p>📝 Immutable Audit Trail</p>
           </div>
         </div>
       </div>
       <div className="border-t border-primary-foreground/10 px-4 py-5 text-center text-xs text-primary-foreground/45">
-        © 2026 Khet2Kart · Built for SIH 2026 · Made for India’s food economy
+        © 2026 Khet2Kart · Built for SIH 2026 · Made for India’s agricultural economy
       </div>
     </footer>
   );

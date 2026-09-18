@@ -94,3 +94,72 @@ class TransporterTaskUpdate(BaseModel):
 class BatchCreate(BaseModel):
     route: Optional[str] = "Hyderabad Route · HYD-221"
     description: Optional[str] = "4 farmer lots · 1,280 kg"
+
+
+class QuickRoleLoginRequest(BaseModel):
+    role: Literal["FARMER", "CUSTOMER", "DELIVERY_PARTNER", "STORE_MANAGER", "ADMIN"]
+
+
+class IncomingReceiveRequest(BaseModel):
+    shipmentId: str
+    expectedKg: float = Field(..., gt=0)
+    actualKg: float = Field(..., gt=0)
+    acceptedKg: float = Field(..., ge=0)
+    rejectedKg: float = Field(0.0, ge=0)
+    grade: Literal["Grade A", "Grade B", "Grade C"] = "Grade A"
+    freshness: Literal["Excellent", "Good", "Fair", "Substandard"] = "Good"
+    damagePct: float = Field(0.0, ge=0, le=100)
+    temperature: str = "18°C"
+    decision: Literal["APPROVE", "REJECT", "PARTIAL_ACCEPT"] = "APPROVE"
+
+
+class OrderPickPackAdvanceRequest(BaseModel):
+    pickTaskId: str
+    orderId: str
+    stage: Literal["START_PICKING", "QUALITY_CHECK", "PACK_ORDER", "READY_FOR_DELIVERY"]
+    notes: Optional[str] = ""
+
+
+class DriverLocationPingRequest(BaseModel):
+    driverId: str = "DP-HYD-042"
+    lat: float
+    lng: float
+    speedKmh: Optional[float] = 28.5
+    heading: Optional[float] = 142.0
+    etaMinutes: Optional[int] = 18
+
+
+class DriverDeliveryStatusRequest(BaseModel):
+    deliveryId: str
+    status: Literal["ACCEPTED", "PICKED_UP_FROM_HUB", "OUT_FOR_DELIVERY", "DELIVERED"]
+    proofOtp: Optional[str] = None
+
+
+class WastageRecordRequest(BaseModel):
+    batchId: str
+    cropName: str
+    wastageKg: float = Field(..., gt=0)
+    reason: str = Field(..., min_length=3)
+
+
+class AutoHubSelectRequest(BaseModel):
+    customerAddress: str
+    coordinates: Optional[Tuple[float, float]] = (17.4325, 78.4073)
+    items: List[OrderItem]
+
+
+class OAuthLoginRequest(BaseModel):
+    provider: Literal["google", "agristack", "demo_oauth"] = "google"
+    role: Literal["FARMER", "CUSTOMER", "DELIVERY_PARTNER", "STORE_MANAGER", "ADMIN"]
+    email: str
+    name: str
+    avatar: Optional[str] = None
+    token: Optional[str] = None
+
+
+class RolePermissionUpdateRequest(BaseModel):
+    enabled: bool
+    adminApproved: Optional[bool] = True
+    permissions: Optional[List[str]] = None
+
+
